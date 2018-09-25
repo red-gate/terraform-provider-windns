@@ -3,7 +3,7 @@ package windns
 import (
 	"github.com/hashicorp/terraform/helper/schema"
 
-	"github.com/portofportland/goWinRM"
+	"github.com/red-gate/terraform-provider-windns/goWinRM"
 
 	"errors"
 	"strings"
