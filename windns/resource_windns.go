@@ -69,7 +69,7 @@ func resourceWinDNSRecordCreate(d *schema.ResourceData, m interface{}) error {
 			if hostnamealias == "" {
 				return errors.New("Must provide hostnamealias if record_type is 'CNAME'")
 			}
-			psCommand = "Add-DNSServerResourceRecord -ZoneName " + zone_name + " -" + record_type + " -Name " + record_name + " -HostNameAlias " + hostnamealias
+			psCommand = "Add-DNSServerResourceRecord -ZoneName " + zone_name + " -" + record_type + " -Name " + record_name + " -HostNameAlias " + hostnamealias + " -TimeToLive (New-TimeSpan -Minutes 5)"
 		default:
 			return errors.New("Unknown record type. This provider currently only supports 'A' and 'CNAME' records.")
 	}
